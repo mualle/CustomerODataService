@@ -1,7 +1,10 @@
-﻿using System;
+﻿using CustomerODataService.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.OData.Builder;
+using System.Web.OData.Extensions;
 
 namespace CustomerODataService
 {
@@ -19,6 +22,16 @@ namespace CustomerODataService
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            //OData Endpoint Configuration
+            ODataModelBuilder builder = new ODataConventionModelBuilder();
+
+            builder.EntitySet<Customer>("Customers"); // Customer OData Entity Set
+
+            config.MapODataServiceRoute(
+                routeName: "ODataRoute",
+                routePrefix: null,
+                model: builder.GetEdmModel());
         }
     }
 }

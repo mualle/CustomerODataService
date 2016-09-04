@@ -25,6 +25,9 @@ namespace CustomerODataService.Models
         public string SalesPerson { get; set; }
         public string EmailAddress { get; set; }
         public string Phone { get; set; }
+        public string PasswordHash { get; private set; }
+        public string PasswordSalt { get; private set; }
+        public System.Guid rowguid { get; private set; }
         public System.DateTime ModifiedDate { get; set; }
     }
 }

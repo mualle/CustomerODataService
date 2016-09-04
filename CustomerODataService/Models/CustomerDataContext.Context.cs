@@ -9,9 +9,10 @@
 
 namespace CustomerODataService.Models
 {
+    using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    
     public partial class CustomerDataContext : DbContext
     {
         public CustomerDataContext()
